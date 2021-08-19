@@ -160,7 +160,7 @@ def canMoveDown(piece, board):
 
 
 def isFullLine(board):
-# Ist gibt den Wert der vollen Line zurück sonst -1
+# If full line returns numer of line else returns -1
     for i in range(len(board)-1, -1, -1):
         count = 0
         for j in board[i]:
@@ -172,6 +172,7 @@ def isFullLine(board):
             return -1
 
 def canRotateRight(piece, x, y, board):
+# Can piece be rotated left
     piece = rotateRight(piece)
     pieceBoard = addPieceatPos(piece, x, y, cleanBoard())
     tetrominos = 0
@@ -193,6 +194,7 @@ def canRotateRight(piece, x, y, board):
         return False
 
 def canRotateLeft(piece, x, y, board):
+# Can piece be rotated right
     piece = rotateLeft(piece)
     pieceBoard = addPieceatPos(piece, x, y, cleanBoard())
     tetrominos = 0
@@ -215,7 +217,7 @@ def canRotateLeft(piece, x, y, board):
         return False
 
 def canMoveRight(piece, board):
-# Kann man piece nach rechts bewegen
+# Can piece be rotated right 
     for row in range(len(piece)):
         for collum in range(len(piece[row])):
             if piece[row][collum] == "#": 
