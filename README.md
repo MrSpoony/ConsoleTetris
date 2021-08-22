@@ -11,4 +11,4 @@ Q -> rotate left
 
 F -> rotate right
 
-R -> do nothing e.g. go one Tile down
+R or any other key-> do nothing e.g. go one Tile down
