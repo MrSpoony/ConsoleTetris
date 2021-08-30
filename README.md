@@ -12,3 +12,10 @@ Q -> rotate left
 F -> rotate right
 
 R or any other key-> do nothing e.g. go one Tile down
+
+## How to run it
+
+Clone the Repo or download the Tetris.py file
+Then just run it in the Terminal with the command
+
+python Tetris.py
