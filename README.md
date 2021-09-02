@@ -19,3 +19,6 @@ Clone the Repo or download the Tetris.py file
 Then just run it in the Terminal with the command
 
 python Tetris.py
+
+Linux users need to run thes command
+python TetrisLinux.py
