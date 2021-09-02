@@ -25,10 +25,10 @@ def combineBoards(mainBoard, pieceBoard):
     finalBoard = cleanBoard()
     for i in range(len(mainBoard)):
         for j in range(len(mainBoard[i])):
-            if mainBoard[i][j] == "#":
-                finalBoard[i][j] = "#"
-            elif pieceBoard[i][j] == "#":
-                finalBoard[i][j] = "#"
+            if mainBoard[i][j] != "":
+                finalBoard[i][j] = mainBoard[i][j]
+            elif pieceBoard[i][j] != " ":
+                finalBoard[i][j] = pieceBoard[i][j]
             else:
                 finalBoard[i][j] = " "
     return finalBoard
@@ -134,8 +134,8 @@ def nearPiece(piece, board):
 # Gives a valid offset for block
     for row in range(len(piece)):
         for collum in range(len(piece[row])):
-            if piece[row][collum] == "#":
-                if board[row+1][collum] == "#":
+            if piece[row][collum] != " ":
+                if board[row+1][collum] != " ":
                     return True
     return False
 
@@ -164,7 +164,7 @@ def isFullLine(board):
     for i in range(len(board)-1, -1, -1):
         count = 0
         for j in board[i]:
-            if j == "#":
+            if j != " ":
                 count += 1
         if count == len(board[0]):
             return i
@@ -180,13 +180,13 @@ def canRotateRight(piece, x, y, board):
 
     for i in range(len(board)):
         for j in range(len(board[i])):
-            if board[i][j] == "#":
+            if board[i][j] != " ":
                 pass
-            elif pieceBoard[i][j] == "#":
+            elif pieceBoard[i][j] != " ":
                 inOtherPieces += 1
     for i in range(len(pieceBoard)):
         for j in pieceBoard[i]:
-            if j == "#":
+            if j != " ":
                 tetrominos += 1
     if tetrominos == 4 and inOtherPieces == 4:
         return True
@@ -202,13 +202,13 @@ def canRotateLeft(piece, x, y, board):
 
     for i in range(len(board)):
         for j in range(len(board[i])):
-            if board[i][j] == "#":
+            if board[i][j] != " ":
                 pass
-            elif pieceBoard[i][j] == "#":
+            elif pieceBoard[i][j] != " ":
                 inOtherPieces += 1
     for i in range(len(pieceBoard)):
         for j in pieceBoard[i]:
-            if j == "#":
+            if j != " ":
                 tetrominos += 1
 
     if tetrominos == 4 and inOtherPieces == 4:
@@ -220,10 +220,10 @@ def canMoveRight(piece, board):
 # Can piece be rotated right 
     for row in range(len(piece)):
         for collum in range(len(piece[row])):
-            if piece[row][collum] == "#": 
+            if piece[row][collum] != " ": 
                 if collum == len(piece[row])-1:
                     return False
-                elif board[row][collum+1] == "#":
+                elif board[row][collum+1] != " ":
                     return False
     return True
 
@@ -232,10 +232,10 @@ def canMoveLeft(piece, board):
 # Kann man piece nach links bewegen
     for row in range(len(piece)):
         for collum in range(len(piece[row])):
-            if piece[row][collum] == "#": 
+            if piece[row][collum] != " ": 
                 if collum == 0:
                     return False
-                elif board[row][collum-1] == "#":
+                elif board[row][collum-1] != " ":
                     return False
     return True
 
@@ -243,7 +243,7 @@ def countHashtags(board):
     count = 0
     for i in range(len(board)):
         for j in board[i]:
-            if j == "#":
+            if j != " ":
                 count += 1
     return count
 # Pieces
@@ -254,24 +254,24 @@ pieces = [
      [" ", "#", " ", " "], 
      [" ", "#", " ", " "]],
 
-    [[" ", " ", "#"],
-     ["#", "#", "#"],
+    [[" ", " ", "@"],
+     ["@", "@", "@"],
      [" ", " ", " "]],
 
-    [["#", " ", " "],
-     ["#", "#", "#"],
+    [["*", " ", " "],
+     ["*", "*", "*"],
      [" ", " ", " "]],
 
-    [["#", "#", " "],
-     [" ", "#", "#"],
+    [["%", "%", " "],
+     [" ", "%", "%"],
      [" ", " ", " "]],
 
-    [[" ", "#", "#"],
-     ["#", "#", " "],
+    [[" ", "&", "&"],
+     ["&", "&", " "],
      [" ", " ", " "]],
 
-    [[" ", "#", " "],
-     ["#", "#", "#"],
+    [[" ", "$", " "],
+     ["$", "$", "$"],
      [" ", " ", " "]],
 
     [["#", "#"],
