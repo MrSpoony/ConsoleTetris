@@ -372,6 +372,13 @@ while True:
             else:
                 draw(combineBoards(pieceBoard, mainBoard))
                 break
+        elif key == 114:
+            while canMoveDown(pieceBoard, mainBoard):
+                pieceBoard = movePieceDown(pieceBoard)
+                yPoscurrentPiece += 1
+            else:
+                draw(combineBoards(pieceBoard, mainBoard))
+                break
         else:
             if canMoveDown(pieceBoard, mainBoard):
                 pieceBoard = movePieceDown(pieceBoard)
