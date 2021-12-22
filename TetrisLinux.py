@@ -9,7 +9,6 @@ rows = 12
 collumns = 10
 
 
-
 def cleanBoard():
 # makes a clean 2x2Board with rows x collumns 
     board = [[]] * (rows+2)
