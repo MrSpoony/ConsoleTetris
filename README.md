@@ -1,5 +1,9 @@
 # ConsoleTetris
+
 This is the original Tetris game, you can play it within the console
+
+This was one of my first projects so my codingstyle is very bad,
+I changed it since (at least I think so...)
 
 ## Controls
 
